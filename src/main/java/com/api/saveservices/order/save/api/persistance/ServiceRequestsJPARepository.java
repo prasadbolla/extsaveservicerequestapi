@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface ServiceRequestsRepository extends JpaRepository<ServiceJPARequests, Long> {
+public interface ServiceRequestsJPARepository extends JpaRepository<ServiceRequests, Long> {
 
 }

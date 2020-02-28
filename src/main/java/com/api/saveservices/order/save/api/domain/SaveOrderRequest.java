@@ -3,25 +3,184 @@
  */
 package com.api.saveservices.order.save.api.domain;
 
-import java.util.Date;
-
 /**
  * @author PRASADBolla
  *
  */
 public class SaveOrderRequest {
-	public String serviceRequestId;
-	public String serviceId;
-	public String serviceScenarioId;
-	public String userId;
-	public String requestData;
-	public Date requestDate;
-	public Date requestExpiry;
-	public String statusId;
-	public String scheduleType;
-	public Date scheduleDateTime;
-	public int schedulePriority;
+	public String subscriptionId;
+	public String resourceGroup;
+	public String databaseName;
+	public String serverName;
+	public String skuname;
+	public String tier;
+	public String size;
+	public String justification;
+	public String collation;
 
+	/**
+	 * @return the size
+	 */
+	public String getSize() {
+		return size;
+	}
+
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+
+	/**
+	 * @return the justification
+	 */
+	public String getJustification() {
+		return justification;
+	}
+
+
+	/**
+	 * @param justification the justification to set
+	 */
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
+
+
+	/**
+	 * @return the collation
+	 */
+	public String getCollation() {
+		return collation;
+	}
+
+
+	/**
+	 * @param collation the collation to set
+	 */
+	public void setCollation(String collation) {
+		this.collation = collation;
+	}
+
+
+	/**
+	 * @return the subscriptionId
+	 */
+	public String getSubscriptionId() {
+		return subscriptionId;
+	}
+
+
+	/**
+	 * @param subscriptionId the subscriptionId to set
+	 */
+	public void setSubscriptionId(String subscriptionId) {
+		this.subscriptionId = subscriptionId;
+	}
+
+
+	/**
+	 * @return the resourceGroup
+	 */
+	public String getResourceGroup() {
+		return resourceGroup;
+	}
+
+
+	/**
+	 * @param resourceGroup the resourceGroup to set
+	 */
+	public void setResourceGroup(String resourceGroup) {
+		this.resourceGroup = resourceGroup;
+	}
+
+
+	/**
+	 * @return the databaseName
+	 */
+	public String getDatabaseName() {
+		return databaseName;
+	}
+
+
+	/**
+	 * @param databaseName the databaseName to set
+	 */
+	public void setDatabaseName(String databaseName) {
+		this.databaseName = databaseName;
+	}
+
+
+	/**
+	 * @return the serverName
+	 */
+	public String getServerName() {
+		return serverName;
+	}
+
+
+	/**
+	 * @param serverName the serverName to set
+	 */
+	public void setServerName(String serverName) {
+		this.serverName = serverName;
+	}
+
+
+	/**
+	 * @return the skuname
+	 */
+	public String getSkuname() {
+		return skuname;
+	}
+
+
+	/**
+	 * @param skuname the skuname to set
+	 */
+	public void setSkuname(String skuname) {
+		this.skuname = skuname;
+	}
+
+
+	/**
+	 * @return the tier
+	 */
+	public String getTier() {
+		return tier;
+	}
+
+
+	/**
+	 * @param tier the tier to set
+	 */
+	public void setTier(String tier) {
+		this.tier = tier;
+	}
+
+
+	/**
+	 * @return the wftData
+	 */
+	public WFTData getWftData() {
+		return wftData;
+	}
+
+
+	/**
+	 * @param wftData the wftData to set
+	 */
+	public void setWftData(WFTData wftData) {
+		this.wftData = wftData;
+	}
+
+
+	public WFTData wftData;
+
+	
 	/**
 	 * Default constructor
 	 */
@@ -29,199 +188,4 @@ public class SaveOrderRequest {
 
 	}
 
-	/**
-	 * @return the serviceRequestId
-	 */
-	public String getServiceRequestId() {
-		return serviceRequestId;
-	}
-
-	/**
-	 * @param serviceRequestId
-	 *            the serviceRequestId to set
-	 */
-	public void setServiceRequestId(String serviceRequestId) {
-		this.serviceRequestId = serviceRequestId;
-	}
-
-	/**
-	 * @return the serviceId
-	 */
-	public String getServiceId() {
-		return serviceId;
-	}
-
-	/**
-	 * @param serviceId
-	 *            the serviceId to set
-	 */
-	public void setServiceId(String serviceId) {
-		this.serviceId = serviceId;
-	}
-
-	/**
-	 * @return the serviceScenarioId
-	 */
-	public String getServiceScenarioId() {
-		return serviceScenarioId;
-	}
-
-	/**
-	 * @param serviceScenarioId
-	 *            the serviceScenarioId to set
-	 */
-	public void setServiceScenarioId(String serviceScenarioId) {
-		this.serviceScenarioId = serviceScenarioId;
-	}
-
-	/**
-	 * @return the userId
-	 */
-	public String getUserId() {
-		return userId;
-	}
-
-	/**
-	 * @param userId
-	 *            the userId to set
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	/**
-	 * @return the requestData
-	 */
-	public String getRequestData() {
-		return requestData;
-	}
-
-	/**
-	 * @param requestData
-	 *            the requestData to set
-	 */
-	public void setRequestData(String requestData) {
-		this.requestData = requestData;
-	}
-
-	/**
-	 * @return the requestDate
-	 */
-	public Date getRequestDate() {
-		return requestDate;
-	}
-
-	/**
-	 * @param requestDate
-	 *            the requestDate to set
-	 */
-	public void setRequestDate(Date requestDate) {
-		this.requestDate = requestDate;
-	}
-
-	/**
-	 * @return the requestExpiry
-	 */
-	public Date getRequestExpiry() {
-		return requestExpiry;
-	}
-
-	/**
-	 * @param requestExpiry
-	 *            the requestExpiry to set
-	 */
-	public void setRequestExpiry(Date requestExpiry) {
-		this.requestExpiry = requestExpiry;
-	}
-
-	/**
-	 * @return the statusId
-	 */
-	public String getStatusId() {
-		return statusId;
-	}
-
-	/**
-	 * @param statusId
-	 *            the statusId to set
-	 */
-	public void setStatusId(String statusId) {
-		this.statusId = statusId;
-	}
-
-	/**
-	 * @return the scheduleType
-	 */
-	public String getScheduleType() {
-		return scheduleType;
-	}
-
-	/**
-	 * @param scheduleType
-	 *            the scheduleType to set
-	 */
-	public void setScheduleType(String scheduleType) {
-		this.scheduleType = scheduleType;
-	}
-
-	/**
-	 * @return the scheduleDateTime
-	 */
-	public Date getScheduleDateTime() {
-		return scheduleDateTime;
-	}
-
-	/**
-	 * @param scheduleDateTime
-	 *            the scheduleDateTime to set
-	 */
-	public void setScheduleDateTime(Date scheduleDateTime) {
-		this.scheduleDateTime = scheduleDateTime;
-	}
-
-	/**
-	 * @return the schedulePriority
-	 */
-	public int getSchedulePriority() {
-		return schedulePriority;
-	}
-
-	/**
-	 * @param schedulePriority
-	 *            the schedulePriority to set
-	 */
-	public void setSchedulePriority(int schedulePriority) {
-		this.schedulePriority = schedulePriority;
-	}
-
-	/**
-	 * @param serviceRequestId
-	 * @param serviceId
-	 * @param serviceScenarioId
-	 * @param userId
-	 * @param requestData
-	 * @param requestDate
-	 * @param requestExpiry
-	 * @param statusId
-	 * @param scheduleType
-	 * @param scheduleDateTime
-	 * @param schedulePriority
-	 */
-	public SaveOrderRequest(String serviceRequestId, String serviceId,
-			String serviceScenarioId, String userId, String requestData,
-			Date requestDate, Date requestExpiry, String statusId,
-			String scheduleType, Date scheduleDateTime, int schedulePriority) {
-		super();
-		this.serviceRequestId = serviceRequestId;
-		this.serviceId = serviceId;
-		this.serviceScenarioId = serviceScenarioId;
-		this.userId = userId;
-		this.requestData = requestData;
-		this.requestDate = requestDate;
-		this.requestExpiry = requestExpiry;
-		this.statusId = statusId;
-		this.scheduleType = scheduleType;
-		this.scheduleDateTime = scheduleDateTime;
-		this.schedulePriority = schedulePriority;
-	}
 }

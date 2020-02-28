@@ -3,7 +3,6 @@
  */
 package com.api.saveservices.order.save.api.service;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,13 @@ import com.api.saveservices.order.save.api.common.CommonConstants;
 import com.api.saveservices.order.save.api.common.Message;
 import com.api.saveservices.order.save.api.domain.SaveOrderRequest;
 import com.api.saveservices.order.save.api.domain.SaveOrderResponse;
-import com.api.saveservices.order.save.api.persistance.ServiceRequests;
+import com.api.saveservices.order.save.api.domain.WFTData;
+import com.api.saveservices.order.save.api.persistance.ServiceJPARequests;
 import com.api.saveservices.order.save.api.persistance.ServiceRequestsRepository;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author PRASADBolla
@@ -25,31 +29,38 @@ import com.api.saveservices.order.save.api.persistance.ServiceRequestsRepository
 public class SaveOrderAPIService {
 	
 	@Autowired
-	private ServiceRequestsRepository serviceRequestsRepository;
+	private ServiceRequestsRepository servicejparequestssRepository;
 	
 	// temp persistance object
 	public static List<SaveOrderRequest> saveOrderRequestList = new ArrayList<SaveOrderRequest>();
 
 	public SaveOrderResponse saveOrder(SaveOrderRequest orderRequest) {
 		
-		ServiceRequests serviceRequest = new ServiceRequests();
+		ServiceJPARequests servicejparequests = new ServiceJPARequests();
+		servicejparequests.setDatabasename(orderRequest.getDatabaseName());
+		servicejparequests.setResourcegroup(orderRequest.getResourceGroup());
+		servicejparequests.setServername(orderRequest.getServerName());
+		servicejparequests.setSkuname(orderRequest.getSkuname());
+		servicejparequests.setSubscriptionid(orderRequest.getSubscriptionId());
+		servicejparequests.setTier(orderRequest.getTier());
+		servicejparequests.setCollation(orderRequest.getCollation());
+		servicejparequests.setSize(orderRequest.getSize());
+		servicejparequests.setJustification(orderRequest.getJustification());
+		servicejparequests.setWftData(" ");
+		 String jsonWftData = null;
+        ObjectMapper mapper = new ObjectMapper();
+		/*
+		 * try { mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		 * jsonWftData = mapper.writeValueAsString(orderRequest.getWftData()); } catch
+		 * (JsonProcessingException e) { e.printStackTrace(); }
+		 */
+		servicejparequests.setWftData(jsonWftData);
 		
-		serviceRequest.setRequestdata(orderRequest.getRequestData());
-		serviceRequest.setRequestdate(new Timestamp(orderRequest.getRequestDate().getTime()));
-		serviceRequest.setRequestexpiry(new Timestamp(orderRequest.getRequestExpiry().getTime()));
-		serviceRequest.setScheduledatetime(new Timestamp(orderRequest.getScheduleDateTime().getTime()));
-		serviceRequest.setSchedulepriority(orderRequest.getSchedulePriority());
-		serviceRequest.setScheduletype(Integer.parseInt(orderRequest.getScheduleType()));
-		serviceRequest.setServiceid(Long.parseLong(orderRequest.getServiceId()));
-		serviceRequest.setServicerequestid(Long.parseLong(orderRequest.getServiceRequestId()));
-		serviceRequest.setServicescenarioid(Long.parseLong(orderRequest.getServiceScenarioId()));
-		serviceRequest.setStatusid(Integer.parseInt(orderRequest.getStatusId()));
-		serviceRequest.setUserid(Long.parseLong(orderRequest.getUserId()));
-		serviceRequestsRepository.save(serviceRequest);
+		servicejparequestssRepository.save(servicejparequests);
 		
 		//saveOrderRequestList.add(orderRequest);
 		return new SaveOrderResponse(new Message(
 				CommonConstants.SUCCESS_MESSAGE_ID,
-				CommonConstants.SUCCESS_MESSAGE_DESCRIPTION), orderRequest.getServiceRequestId(),orderRequest.getServiceId());
+				CommonConstants.SUCCESS_MESSAGE_DESCRIPTION), orderRequest.getSubscriptionId(),orderRequest.getServerName());
 	}
 }
